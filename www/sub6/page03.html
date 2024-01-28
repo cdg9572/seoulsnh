@@ -1,0 +1,58 @@
+<?php
+	include $_SERVER["DOCUMENT_ROOT"]."/inc/head.php";
+?>
+<body data-dep1="5" data-dep2="3">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-06.jpg" alt="">
+				<div class="inner">
+					<h2>응급환자 전원연계망</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>응급환자 전원연계망</h3>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">서울권역 응급환자 <br class="mb-hide">전원연계망 소개</div>
+						<div class="cont">
+							<p>
+								서울권역 응급환자 지역사회 연계·회송 네트워크를 구축하여 전원 의뢰 프로세스를 간소화 하고 홈페이지 내 기관 간 실시간 대화 기능 개발을 통해 실시간 환자 상태를 전달함으로써 적정 전원기관 이송률을 높이고 전원환자 상태 악화로 인한 재전원율을 낮춥니다.
+							</p>
+							<div class="img-box">
+								<img src="/resource/images/sub6-03-01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">서울권역 응급환자 <br class="mb-hide">전원연계망 주요 기능</div>
+						<div class="cont">
+							<div class="img-box" style="margin-top: 0;">
+								<img src="/resource/images/sub6-03-02.jpg" alt="">
+							</div>
+							<div id="btn-group" class="center">
+								<a href="https://emergency.seoulhealthnet.or.kr" target="_blank" title="새창"><img src="/resource/images/sub6-03-btn.png" alt="서울권역 응급환자 전원연계망 홈페이지 바로가기"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+		$(function(){
+			$("#tab li").on("click",function(){
+				var idx = $(this).index()+1;
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".map-wrap .map_"+idx).show().siblings().hide();
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+include_once $GP -> INC_WWW . '/head.php';
+
+$index_page = "page04-01.html";
+$query_page = "query.php";
+$jb_code = "10";
+?>
+
+<body data-dep1="1" data-dep2="3">
+    <div id="wrap">
+        <?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+        <div id="container">
+            <div id="sub-bnnr">
+                <img src="/resource/images/sub-bnnr-02.jpg" alt="">
+                <div class="inner">
+                    <h2>필수보건의료 기초조사 보고서</h2>
+                    <p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+                </div>
+            </div>
+            <?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+            <div class="contents half-top-pad">                
+                <div class="inner">
+                    <!-- <ul id="tab">
+                        <li class="on"><a href="page04-01.html">필수보건의료 기초조사 보고서</a></li>
+                        <li><a href="page04-02.html">정기 간행물</a></li>
+                    </ul> -->
+                    <div class="sub-tit bar center">
+                        <h3>필수보건의료 기초조사 보고서</h3>
+                    </div>
+            		<?php include $GP -> INC_PATH ."/board_inc.php"; ?>
+                    <!-- <div class="search-box head">
+                        <input type="text" placeholder="검색어를 입력하세요." name="search_all_content" id="search_all_content"
+                            value="">
+                        <button type="button" id="search_all_button">검색</button>
+                    </div>
+                    <ul class="report-list">
+                        <li>
+                            <div class="img">
+                                <img src="https://via.placeholder.com/104x151" alt="">
+                            </div>
+                            <div class="text">
+                                <h4>타이틀 입력 타이틀 입력 타이틀 입력 타이틀 입력</h4>
+                                <p>
+                                    <span class="name">연구저자 : 공공보건의료재단</span>
+                                    <span class="date">등록일 2022-10-10</span>
+                                    <span class="view">조회수 140</span>
+                                </p>
+                            </div>
+                            <div class="files">
+                                <a href="#none" onclick="$('.report-modal-wrap').show();"><span>PDF</span> 다운로드</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="pagination">
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="처음으로 이동하기" class="page-btn prev">
+                            <span><img src="/resource/images/page-all-left.png" width="100%" alt=""></span>
+                        </a>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="이전으로 이동하기" class="page-btn prev">
+                            <span><img src="/resource/images/page-left.png" width="100%" alt=""></span>
+                        </a>
+                        <strong class="page-btn current" title="현재 페이지">1</strong>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="다음 페이지 이동하기" class="page-btn next">
+                            <span><img src="/resource/images/page-right.png" width="100%" alt=""></span>
+                        </a>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="마지막 페이지 이동하기" class="page-btn next">
+                            <span><img src="/resource/images/page-all-right.png" "="" width=" 100%" alt=""></span>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="report-modal-wrap">
+                <div class="report-modal">
+                    <h5 class="modal-head">본 보고서의 다운로드 목적을 체크해주세요.</h5>
+                    <div class="modal-body">
+                        <div class="body-form">
+                            <p><span>01</span>본 보고서의 활용 목적은 무엇입니까?</p>
+                            <div class="check-group">
+                                <div class="check-list">
+                                    <input type="radio" name="o" id="ch0101">
+                                    <label for="ch0101">연구 참고용</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="o" id="ch0102">
+                                    <label for="ch0102">정책 개발용</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="o" id="ch0103">
+                                    <label for="ch0103">교육 자료용</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="o" id="ch0104">
+                                    <label for="ch0104">기타용도</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-form">
+                            <p><span>02</span>본 보고서를 이용하시는 분의 소속은 어디입니까?</p>
+                            <div class="check-group">
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0201">
+                                    <label for="ch0201">개인</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0202">
+                                    <label for="ch0202">연구기관</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0203">
+                                    <label for="ch0203">행정기관</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0204">
+                                    <label for="ch0204">교육기관</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0205">
+                                    <label for="ch0205">보건의료기관</label>
+                                </div>
+                                <div class="check-list">
+                                    <input type="radio" name="p" id="ch0206">
+                                    <label for="ch0206">기타</label>
+                                </div>
+                            </div>
+                            <div class="check-group-name">
+                                <input type="text" placeholder="소속 기관명">
+                            </div>
+                        </div>
+
+                        <div id="btn-group" class="center">
+                            <a href="해당 파일경로가 들어갑니다" class="btn bg-black" download>&nbsp;&nbsp;완료&nbsp;&nbsp;</a>
+                        </div>
+                    </div>
+                    <a href="#none" class="close" onclick="$('.report-modal-wrap').hide();"><img
+                            src="/resource/images/modal-close.png" alt="닫기"></a>
+                </div>
+            </div>
+        </div>
+        <?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+    </div>
+
+	<!-- <script>
+		$(function(){
+			$("#tab li").eq(0).addClass("on");
+		});
+	</script> -->
+    <?if($_GET['file']){?>    
+	    <script>location.href='/bbs/download.php?downview=1&file=<?=$_GET['file']?>&name=<?=$_GET['name']?>';</script>
+    <?}?>
+	
+</body>
+</html>
+

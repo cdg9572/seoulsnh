@@ -1,0 +1,431 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+    include $_SERVER["DOCUMENT_ROOT"]."/inc/head.php";
+    $sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $mb_email2, "class='form-control w20p'",'::::직접입력::::');
+?>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js" style="user-select: auto;"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<style>
+	.cooperation-modal {max-width: 1000px;}
+	.form-label {width: 250px;}
+</style>
+<body data-dep1="2" data-dep2="1">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-03.jpg" alt="">
+				<div class="inner">
+					<h2>감염관리 컨설팅 신청</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad no-bottom-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>감염관리 컨설팅 신청</h3>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">
+							개요
+						</div>
+						<div class="cont">
+							<p>서울특별시 서남병원 감염관리실은 2021년 1월부터 요양병원을 대상으로 감염병 음압병동 설계, 현장세팅, 각 실무별 프로세스 정립 및 관련 지침 수립, 직원 감염관리 지침 전수 등의 컨설팅을 시행했으며 문제상황 발생 시 유선 자문 및 추후관리를 수행하고 있습니다.</p>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">
+							대상
+						</div>
+						<div class="cont">
+							<p>서울 서남권 소재 감염병 전담기관 지정(예정) 요양병원, 병원</p>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">
+							사업 흐름도
+						</div>
+						<div class="cont">
+							<ul class="square-list n3">
+								<li>
+									<img src="/resource/images/sub3-02-01-icon.png" alt="">
+									<small>STEP1</small>
+									<p>격리병동 설계 및 세팅</p>
+									<span>
+										현장점검, 감염병 환자 및 직원 <br class="mb-hide">
+										이동 동선수립, 탈의구역 등 목적별 <br class="mb-hide">
+										실 구분 및 세팅
+									</span>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-02-02-icon.png" alt="">
+									<small>STEP2</small>
+									<p>환경 및 의료기구 관리</p>
+									<span>
+										실별 음압관리, 환경소독, <br>
+										격리의료폐기물관리, 의료기구 멸균 <br>
+										및 소독 등 지침 전수
+									</span>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-02-03-icon.png" alt="">
+									<small>STEP3</small>
+									<p>환자관리</p>
+									<span>
+										주제별 환자관리 프로세스 <br>
+										점검 및 지침 수립
+									</span>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-02-04-icon.png" alt="">
+									<small>STEP4</small>
+									<p>직원 감염관리</p>
+									<span>
+										노출 상황평가 및 상황별 직원 <br>
+										검사 및 모니터링 방법 전수
+									</span>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-02-05-icon.png" alt="">
+									<small>STEP5</small>
+									<p>교육</p>
+									<span>
+										운영관련 담당자 교육 실시, <br>
+										질의응답 실시
+									</span>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-02-06-icon.png" alt="">
+									<small>STEP6</small>
+									<p>추후관리</p>
+									<span>
+										운영관련 유선자문, <br>
+										필요 시 현장점검 및 조치
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">
+							사업 내용
+						</div>
+						<div class="cont">
+							<ul class="c-middot-list">
+								<li>각 병원 상황에 맞는 격리병동 설계 및 세팅 자문</li>
+								<li>환경 및 의료기구 관리 방법 전수</li>
+								<li>감염병 별 환자관리 방법 교육</li>
+								<li>직원 감염관리 방법 전수</li>
+								<li>감염관리 담당자(전담인력) 교육</li>
+								<li>추후 관리 서비스</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-top-pad">
+				<div class="inner">
+					<div id="btn-group" class="center no-pad">
+						<button type="button" class="btn put" onclick="$('.cooperation-modal-wrap').show();">감염관리 컨설팅 신청하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+				신청 모달
+			 -->
+        <form name="base_form" id="base_form" method="POST" action="?" enctype="multipart/form-data">
+            <input type="hidden" name="mode" id="mode" value="MULTI_REG" />
+            <input type="hidden" name="tm_menu" id="tm_menu" value="consulting" />
+            <input type="hidden" name="tm_content20" id="tm_content20" value="A" />
+            <input type="hidden" name="page_link" id="page_link" value="/sub3/page02.html" />
+			<div class="cooperation-modal-wrap">
+				<div class="cooperation-modal-cont">
+					<div class="cooperation-modal">
+						<h5 class="modal-head">
+							감염관리 컨설팅 신청하기 <img src="/resource/images/cooperation-icon.png" alt="">
+						</h5>
+						<div class="modal-body">
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 신청기관 정보</h6>
+							<div class="form">
+								<label for="" class="form-label">기관명<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control" id="tm_content5" name="tm_content5">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">기관주소</label>
+								<select id="tm_content17" name="tm_content17" class="form-control w25p">
+									<option value="">-- 시 선택 --</option>
+									<option value="서울시">서울</option>
+								</select>
+								<span class="form-bar">시</span>
+								<span class="form-bar">&nbsp;</span>
+								<select id="tm_content3" name="tm_content3" class="form-control w25p">
+									<option value="">-- 구 선택 --</option>
+									<option value="양천구">양천</option>
+									<option value="강서구">강서</option>
+									<option value="구로구">구로</option>
+									<option value="금천구">금천</option>
+									<option value="영등포구">영등포</option>
+									<option value="기타">기타</option>
+								</select>
+								<span class="form-bar">구</span>
+							</div>
+							<!-- 23-01-05 추가 -->
+							<div class="form no-mt">
+								<label for="" class="form-label">기관 상세주소</label>
+								<input type="text" class="form-control" id="tm_content4" name="tm_content4">
+								<button type="button" class="form-file" onclick="goPopup3()">주소 검색</button>
+							</div>
+							<!-- //end 23-01-05 추가 -->
+							<div class="form">
+								<label for="" class="form-label">병상수</label>
+								<input type="text" class="form-control w15p" id="tm_content16" name="tm_content16">
+								<span class="form-bar">병상</span>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">감염관리실 운영 유무</label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content11" id="answer_2_01" value="운영">
+										<label for="answer_2_01">운영</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content11" id="answer_2_02" value="미운영">
+										<label for="answer_2_02">미운영</label>
+									</div>
+								</div>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">감염관리 전담인력 수</label>
+								<input type="text" class="form-control w15p" id="tm_content15" name="tm_content15">
+								<span class="form-bar">명</span>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">감염관리 겸임인력 수</label>
+								<input type="text" class="form-control w15p" id="tm_content8" name="tm_content8">
+								<span class="form-bar">명</span>
+							</div>
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 감염병 전담기관 정보</h6>
+							<div class="form">
+								<label for="" class="form-label">전담기관 운영 개시일</label>
+								<input type="text" id="datepicker" class="form-control w20p" name="tm_content9" value="" readonly="">
+							</div>
+							<div class="form">
+								<label for="" class="form-label" style="line-height: 1.2;">전담기관 운영 시 <br class="mb-hide">가동 병상 수</label>
+								<input type="text" class="form-control w15p" id="tm_content10" name="tm_content10">
+								<span class="form-bar">병상</span>
+							</div>
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 신청인 정보</h6>
+							<div class="form">
+								<label for="" class="form-label">담당자<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w33p" id="tm_content6" name="tm_content6">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">근무부서</label>
+								<input type="text" class="form-control w50p" id="tm_content12" name="tm_content12">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">감염관리실 근무 형태</label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content13" id="center01" value="전담">
+										<label for="center01">전담</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content13" id="center02" value="겸임">
+										<label for="center02">겸임</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content13" id="center03" value="해당무">
+										<label for="center03">해당무</label>
+									</div>
+								</div>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">직위</label>
+								<input type="text" class="form-control w50p" id="tm_content18" name="tm_content18">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">전화번호<small class="text-point">(필수)</small></label>
+								<span class="form-bar">사무실&nbsp;</span>
+								<input type="text" class="form-control w10p" id="tm_content14_1" name="tm_content14_1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content14_2" name="tm_content14_2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content14_3" name="tm_content14_3" value=""> 
+							</div>
+							<div class="form no-mt">
+								<label for="" class="form-label"></label>
+								<span class="form-bar">휴대폰&nbsp;</span>
+								<input type="text" class="form-control w10p" id="tm_content7_1" name="tm_content7_1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_2" name="tm_content7_2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_3" name="tm_content7_3" value=""> 
+							</div>
+							<div class="form">
+								<label for="" class="form-label">이메일<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w20p" id="tm_content1_1" name="tm_content1_1">
+								<span class="form-bar">@</span>
+								<input type="text" class="form-control w20p" id="tm_content1_2" name="tm_content1_2">&nbsp;
+								<?=$sel_email?>							
+							</div>
+							<div class="form">
+								<label for="" class="form-label">비밀번호<small class="text-point">(필수)</small></label>
+								<input type="password" class="form-control w33p" id="tm_content2" name="tm_content2">
+							</div>
+							<!-- <br>
+							<hr style="border:0px;height: 1px;background-color: #ddd;">
+							<br> -->
+							<!-- <div class="form">
+								<label for="" class="form-label">첨부파일 1</label>
+								<p id="filename_2" class="form-control w100p" readonly=""></p>
+								<div class="form-file">
+									<input id="file_2" type="file" name="jb_file[]">
+									<label for="file_2">찾아보기</label>
+								</div>
+							</div>						 -->
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 개인정보 수집&middot;이용동의</h6>
+							<div class="agree-wrap">
+								<div class="agree-box">
+									<p class="agree-box-text">서울특별시 서남병원은 감염관리 컨설팅 제공에 필요한 개인정보를 아래와 같이 수집 및 이용하고 있습니다. 아래의 사항을 충분히 읽어 보신 후 동의여부를 확인하여 주시기 바랍니다. 단, 14세 미만 아동의 경우 신청이 불가능합니다.</p>
+									<div class="noticeTable">
+										<table>
+											<caption style="opacity: 0;height: 0;overflow: hidden;">개인정보 수집·이용 동의에 대한 표로 수집목적, 수집항목, 보유기간, 동의거부 시 불이익에 대한 정보 제공</caption>
+											<colgroup>
+												<col style="width:30%">
+												<col style="width:auto">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집목적</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">감염관리 컨설팅 신청 내역에 대한 접수 및 운영</td>
+												</tr>
+												<tr>
+													<th scope="row">수집항목</th>
+													<td class="tl">[필수] 이름, 비밀번호, 연락처, 이메일</td>
+												</tr>
+												<tr>
+													<th scope="row">보유기간</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">3년</td>
+												</tr>
+												<tr>
+													<th scope="row">동의거부 시 불이익</th>
+													<td class="tl">귀하는 동의를 거부할 권리가 있습니다. 그러나 개인정보 수집에 동의하지 않으실 경우 감염관리 컨설팅 신청을 하실 수 없습니다. </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>							
+								</div>
+								<p class="agree-box-text">위와 같이 개인정보를 수집·이용하는 것에 동의하십니까?</p>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" id="radio1" name="agreeChk" value="Y">
+										<label for="radio1">동의함</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" id="radio2" name="agreeChk" value="N">
+										<label for="radio2">동의안함</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="btn-group" class="center">
+							<button type="submit" class="btn put" id="img_submit">신청하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+						</div>
+					</div>
+					<a href="#none" class="close" onclick="$('.cooperation-modal-wrap').hide(); $(':text').val('');$(':password').val('');document.querySelectorAll('input[type=radio]').forEach(radio => radio.checked = false);$('select').val(null).trigger('chosen:updated');"><img src="/resource/images/modal-close.png" alt="닫기"></a>
+				</div>
+			</div> 
+        </form>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+    function goPopup3() {   
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                // 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
+                //document.getElementById('post2').value = data.postcode2;
+                document.getElementById('tm_content4').value = "["+data.zonecode+"]"+data.address;
+
+                //전체 주소에서 연결 번지 및 ()로 묶여 있는 부가정보를 제거하고자 할 경우,
+                //아래와 같은 정규식을 사용해도 된다. 정규식은 개발자의 목적에 맞게 수정해서 사용 가능하다.
+                //var addr = data.address.replace(/(\s|^)\(.+\)$|\S+~\S+/g, '');
+                //document.getElementById('addr').value = addr;
+
+                document.getElementById('tm_content4').focus();
+            }
+        }).open();
+    }
+		$.datepicker.setDefaults({
+			dateFormat: 'yy-mm-dd',
+			prevText: '이전 달',
+			nextText: '다음 달',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			showMonthAfterYear: true,
+			yearSuffix: '년',
+		});
+		$(function(){
+			$("#datepicker").datepicker();
+		});
+        $('#email_sel').change(function(){
+			var val = $(this).val();
+
+			if(val == "") {
+				$('#tm_content1_2').val('');
+			}else{
+				$('#tm_content1_2').val(val);
+			}
+		});
+        $("#img_submit").click(function(){
+            if($('#tm_content5').val() == '')	{
+                alert('기관명을 정확히 입력하세요');
+                $('#tm_content5').focus();
+			return false;
+	    	}	
+           
+            if($('#tm_content6').val() == '')	{
+                alert('담당자를 정확히 입력하세요');
+                $('#tm_content6').focus();
+			return false;
+	    	}	
+
+             if($('#tm_content7_1').val() == '' || $('#tm_content7_2').val() == '' || $('#tm_content7_3').val() == '')	{
+                alert('휴대폰 번호를 정확히 입력하세요');
+                $('#tm_content7_1').focus();
+                return false;
+            }	
+
+            if($('#tm_content1_1').val() == '')	{
+                alert('이메일을 정확히 입력하세요');
+                $('#tm_content1_1').focus();
+			return false;
+	    	}	 
+
+            if($('#tm_content2').val() == '')	{
+                alert('비밀번호를 정확히 입력하세요');
+                $('#tm_content2').focus();
+			return false;
+	    	}	 
+           
+
+            if ($('input:radio[name="agreeChk"]:checked').val() == undefined || $('input:radio[name="agreeChk"]:checked').val() == "N") {
+                alert("개인정보 취급 방침에 동의해 주세요.");
+                return false;
+            } 
+
+            $("#base_form").attr("action","/sub3/proc/multi_proc.php");
+            $("#base_form").submit();                 
+            
+            return false;
+        });		
+	</script>
+</body>
+</html>

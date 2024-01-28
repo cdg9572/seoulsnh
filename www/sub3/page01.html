@@ -1,0 +1,446 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+include_once $GP -> INC_WWW . '/head.php';
+
+$index_page = "page01.html";
+$query_page = "query.php";
+$jb_code = "40";
+$sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $mb_email2, "class='form-control w20p'",'::::직접입력::::');
+?>
+<style>
+	.form-label {width: 150px;}
+	@media screen and (max-width:720px) {
+		.number-list.v2 > li {
+			font-size: 26px;
+		}
+	}
+</style>
+<body data-dep1="2" data-dep2="0">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-03.jpg" alt="">
+				<div class="inner">
+					<h2>서남동행진료 신청</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>서남동행진료 신청</h3>
+					</div>
+					<div class="img-cont">
+						<div class="img">
+							<img src="/resource/images/sub3-01-01.jpg" alt="">
+						</div>
+						<div class="text">
+							<h4>서남동행진료는 취약계층의 병원 이용 어려움 해소, <br class="mb-hide">의료사각지대 발굴, 건강불평등 감소를 위해 <br class="mb-hide">찾아가는 의료서비스를 제공하는 사업입니다.</h4>
+							<p>
+								2013년 5월 9일 노인종합복지관 독거노인을 대상으로 첫 자체 무료진료를 시작하여 2022년까지 총 3619명을 74번에 걸쳐 찾아가는 서남동행진료를 실시하였습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-pad ">
+				<div class="inner">
+					<div class="cont-box">
+						<div class="cont-label">개요</div>
+						<div class="cont">
+							<p>
+								지역사회 기관과의 협업을 통해 의료이용률이 낮은 거주 지역을 의료진이 직접 찾아가 병원에 내원하지 못하는 환자들을 위해 <br class="mb-hide">건강검진 및 건강상담, 필요 시 후속 진료연계와 추후관리 등을 제공하여 공공병원으로서의 역할을 수행하고자 합니다.
+							</p>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">대상자</div>
+						<div class="cont">
+							<p>서남권에 거주하는 빈곤 독거노인, 기초생활수급권자, 장애인 및 지역 사회복지전담 담당자 통해 발굴된 <br class="mb-hide">사회적&middot;경제적으로 고립된 소외계층 중 건강상태 평가 및 치료지원이 필요한 자</p>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">사업 흐름도</div>
+						<div class="cont">
+							<ul class="square-list">
+								<li>
+									<img src="/resource/images/sub3-01-icon-01.png" alt="">
+									<small>STEP1</small>
+									<p>현황 분석 및 계획</p>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-01-icon-02.png" alt="">
+									<small>STEP2</small>
+									<p>지역사회 기관 협의</p>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-01-icon-03.png" alt="">
+									<small>STEP3</small>
+									<p>찾아가는 무료진료 실시</p>
+								</li>
+								<li>
+									<img src="/resource/images/sub3-01-icon-04.png" alt="">
+									<small>STEP4</small>
+									<p>추후 관리</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">사업 내용</div>
+						<div class="cont">
+							<ul class="number-list v2">
+								<li>서남권 인구·경제적 특성 및 현황분석을 통한 지역사회 대상 기관 선정</li>
+								<li>지역사회 기관 협의를 통한 대상자 발굴·의뢰 및 선정</li>
+								<li>사전 기관 방문 및 전일 셋팅</li>
+								<li>
+									찾아가는 무료진료 실시
+									<ol class="dash-list">
+										<li>간호사 예진을 통한 기본 건강상태 확인</li>
+										<li>의사 진료 및 건강상담</li>
+										<li>진단검사(혈액검사 등)</li>
+										<li>약 처방 및 복약지도</li>
+										<li>개별 결과기록지 제공</li>
+									</ol>
+								</li>
+								<li>
+									추후 관리
+									<ol class="dash-list">
+										<li>서남병원 내원을 위한 진료의뢰서 발급</li>
+										<li>공공의료본부 내 타 공공의료사업 연계</li>
+										<li>기관 담당자 만족도 조사 실시</li>							   
+									</ol>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-pad">
+				<div class="inner">
+					<div class="noticeTable cooperation">
+						<table>
+							<colgroup>
+								<col style="width:260px;">
+								<col>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>신청기간</th>
+									<td>연중</td>
+								</tr>
+								<tr>
+									<th>신청대상</th>
+									<td>복지관, 동 주민센터 등 지역사회 기관</td>
+								</tr>
+								<tr>
+									<th>담당자</th>
+									<td>070 - 7862 - 1641</td>
+									<!-- <td class="staff"><span>김민지</span><span class="text-point">02-6300-9029</span></td> -->
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div id="btn-group" class="center">
+						<button type="button" class="btn put" onclick="$('.cooperation-modal-wrap').show();">서남동행진료 신청하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+				신청 모달
+			 -->
+        <form name="base_form" id="base_form" method="POST" action="?" enctype="multipart/form-data">
+            <input type="hidden" name="mode" id="mode" value="MULTI_REG" />
+            <input type="hidden" name="tm_menu" id="tm_menu" value="clinic" />
+            <input type="hidden" name="tm_content20" id="tm_content20" value="A" />
+            <input type="hidden" name="page_link" id="page_link" value="/sub3/page01.html" />
+			<div class="cooperation-modal-wrap">
+				<div class="cooperation-modal-cont">
+					<div class="cooperation-modal">
+						<h5 class="modal-head">
+							서남동행진료 신청하기 <img src="/resource/images/cooperation-icon.png" alt="">
+						</h5>
+						<div class="modal-body">
+							<div class="form">
+								<label for="" class="form-label">이메일<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w20p" id="tm_content1_1" name="tm_content1_1">
+								<span class="form-bar">@</span>
+								<input type="text" class="form-control w20p" id="tm_content1_2" name="tm_content1_2">&nbsp;
+								<?=$sel_email?>			
+							</div>
+							<div class="form">
+								<label for="" class="form-label">비밀번호<small class="text-point">(필수)</small></label>
+								<input type="password" class="form-control w33p" id="tm_content2" name="tm_content2">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">지역</label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city01" value="양천구">
+										<label for="city01">양천구</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city02" value="강서구"> 
+										<label for="city02">강서구</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city03" value="구로구">
+										<label for="city03">구로구</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city04" value="금천구">
+										<label for="city04">금천구</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city05" value="영등포구">
+										<label for="city05">영등포구</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content3" id="city06" value="기타">
+										<label for="city06">기타</label>
+									</div>
+								</div>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">기관구분</label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content4" id="center01" value="구청">
+										<label for="center01">구청</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content4" id="center02" value="보건소">
+										<label for="center02">보건소</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content4" id="center03" value="주민센터">
+										<label for="center03">주민센터</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content4" id="center04" value="복지관">
+										<label for="center04">복지관</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content4" id="center05" value="기타">
+										<label for="center05">기타</label>
+									</div>
+								</div>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">기관명</label>
+								<input type="text" class="form-control" id="tm_content5" name="tm_content5">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">담당자<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control" id="tm_content6" name="tm_content6">
+							</div>
+							<!-- <div class="form">
+								<label for="" class="form-label">휴대폰<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w10p" id="tm_content7_1" name="tm_content7_1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_2" name="tm_content7_2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_3" name="tm_content7_3" value=""> 
+							</div> -->
+							<!-- 23-01-05 추가 -->
+							<div class="form">
+								<label for="" class="form-label">전화번호<small class="text-point">(필수)</small></label>
+								<span class="form-bar">사무실&nbsp;</span>
+								<input type="text" class="form-control w10p" id="tm_content13_1" name="tm_content13_1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content13_2" name="tm_content13_2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content13_3" name="tm_content13_3" value=""> 
+							</div>
+							<div class="form no-mt">
+								<label for="" class="form-label"></label>
+								<span class="form-bar">휴대폰&nbsp;</span>
+								<input type="text" class="form-control w10p" id="tm_content7_1" name="tm_content7_1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_2" name="tm_content7_2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="tm_content7_3" name="tm_content7_3" value=""> 
+							</div>
+							<!-- //end 23-01-05 추가 -->
+							<div class="form">
+								<label for="" class="form-label">신청기간</label>
+								<input type="text" id="datepicker" class="form-control w20p" name="tm_content8" value="" readonly="">
+								<span class="form-bar">-</span>
+								<input type="text" id="datepicker2" class="form-control w20p" name="tm_content9" value="" readonly="">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">모집가능인원</label>
+								<input type="text" class="form-control w33p" id="tm_content10" name="tm_content10">
+								<span class="form-bar">명</span>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">유/무선인터넷<small class="text-point">(필수)</small></label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content11" id="answer_1_01" value="가능">
+										<label for="answer_1_01">가능</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content11" id="answer_1_02" value="불가능">
+										<label for="answer_1_02">불가능</label>
+									</div>
+								</div>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">장소 대관<small class="text-point">(필수)</small></label>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" name="tm_content12" id="answer_2_01" value="가능">
+										<label for="answer_2_01">가능</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" name="tm_content12" id="answer_2_02" value="불가능">
+										<label for="answer_2_02">불가능</label>
+									</div>
+								</div>
+							</div>
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 개인정보 수집&middot;이용동의</h6>
+							<div class="agree-wrap">
+								<div class="agree-box">
+									<p class="agree-box-text">서울특별시 서남병원은 서남동행진료 제공에 필요한 개인정보를 아래와 같이 수집 및 이용하고 있습니다. 아래의 사항을 충분히 읽어 보신 후 동의여부를 확인하여 주시기 바랍니다. 단, 14세 미만 아동의 경우 신청이 불가능합니다.</p>
+									<div class="noticeTable">
+										<table>
+											<caption style="opacity: 0;height: 0;overflow: hidden;">개인정보 수집·이용 동의에 대한 표로 수집목적, 수집항목, 보유기간, 동의거부 시 불이익에 대한 정보 제공</caption>
+											<colgroup>
+												<col style="width:30%">
+												<col style="width:auto">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집목적</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">서남동행진료 신청 내역에 대한 접수 및 운영</td>
+												</tr>
+												<tr>
+													<th scope="row">수집항목</th>
+													<td class="tl">[필수] 이름, 비밀번호, 연락처, 이메일</td>
+												</tr>
+												<tr>
+													<th scope="row">보유기간</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">3년</td>
+												</tr>
+												<tr>
+													<th scope="row">동의거부 시 불이익</th>
+													<td class="tl">귀하는 동의를 거부할 권리가 있습니다. 그러나 개인정보 수집에 동의하지 않으실 경우 서남동행진료 신청을 하실 수 없습니다. </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>							
+								</div>
+								<p class="agree-box-text">위와 같이 개인정보를 수집·이용하는 것에 동의하십니까?</p>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" id="radio1" name="agreeChk" value="Y">
+										<label for="radio1">동의함</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" id="radio2" name="agreeChk" value="N">
+										<label for="radio2">동의안함</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="btn-group" class="center">
+							<button type="submit" class="btn put" id="img_submit">신청하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+						</div>
+					</div>
+					<a href="#none" class="close" onclick="$('.cooperation-modal-wrap').hide(); $(':text').val('');$(':password').val('');document.querySelectorAll('input[type=radio]').forEach(radio => radio.checked = false);$('select').val(null).trigger('chosen:updated');"><img src="/resource/images/modal-close.png" alt="닫기"></a>
+				</div>
+			</div>
+        </form>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+		$.datepicker.setDefaults({
+			dateFormat: 'yy-mm-dd',
+			prevText: '이전 달',
+			nextText: '다음 달',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			showMonthAfterYear: true,
+			yearSuffix: '년',
+		});
+		$(function(){
+			$("#datepicker, #datepicker2").datepicker();
+		});
+        $('#email_sel').change(function(){
+			var val = $(this).val();
+
+			if(val == "") {
+				$('#tm_content1_2').val('');
+			}else{
+				$('#tm_content1_2').val(val);
+			}
+		});
+        $("#img_submit").click(function(){
+           
+            if($('#tm_content1_1').val() == '')	{
+                alert('이메일을 정확히 입력하세요');
+                $('#tm_content1_1').focus();
+			return false;
+	    	}	 
+
+            if($('#tm_content2').val() == '')	{
+                alert('비밀번호를 정확히 입력하세요');
+                $('#tm_content2').focus();
+			return false;
+	    	}	 
+
+            if($('#tm_content6').val() == '')	{
+                alert('담당자를 정확히 입력하세요');
+                $('#tm_content6').focus();
+			return false;
+	    	}	
+
+            if($('#tm_content7_1').val() == '' || $('#tm_content7_2').val() == '' || $('#tm_content7_3').val() == '')	{
+                alert('연락처를 정확히 입력하세요');
+                $('#tm_content7_1').focus();
+                return false;
+            }	
+
+            if ($('input:radio[name="tm_content11"]:checked').val() == undefined ) {
+                alert("유/무선인터넷을 선택해 주세요.");
+                return false;
+            } 
+
+            if ($('input:radio[name="tm_content12"]:checked').val() == undefined ) {
+                alert("장소 대관을 선택해 주세요.");
+                return false;
+            } 
+
+            if ($('input:radio[name="agreeChk"]:checked').val() == undefined || $('input:radio[name="agreeChk"]:checked').val() == "N") {
+                alert("개인정보 취급 방침에 동의해 주세요.");
+                return false;
+            } 
+            
+          
+
+            
+            // if ($("input:radio[name=tm_content2]").is(":checked") == false) {
+            //     alert("2번 질문을 선택해주세요.");
+            //     return false;
+            // }
+            
+            $("#base_form").attr("action","/sub3/proc/multi_proc.php");
+            $("#base_form").submit();                 
+            
+            return false;
+        });			
+	</script>
+</body>
+</html>

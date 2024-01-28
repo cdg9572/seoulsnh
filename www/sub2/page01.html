@@ -1,0 +1,153 @@
+<?php
+	include $_SERVER["DOCUMENT_ROOT"]."/inc/head.php";
+?>
+<style>
+	@media screen and (max-width:720px) {
+		.tableType-01 {
+			position: relative;
+		}
+		/* .tableType-01 table,
+		.tableType-01 thead,
+		.tableType-01 tbody,
+		.tableType-01 tr {
+			display: block;
+			width: 100%;
+			font-size: 0;
+		} */
+		/* .tableType-01 th,
+		.tableType-01 td {
+			display: inline-block;
+			width: 33.33%;
+			box-sizing: border-box;
+		} */
+		.tableType-01 th:first-of-type {
+			display: none;
+		}
+	}
+</style>
+<body data-dep1="1" data-dep2="0">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-02.jpg" alt="">
+				<div class="inner">
+					<h2>사업소개</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>사업소개</h3>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">사업배경</div>
+						<div class="cont">
+							<ul class="c-middot-list">
+								<li>필수보건의료*분야의 공급 부족 및 지역 연계 서비스 개선을 위해 지역 보건의료기관 간 공공보건의료 협력체계 구축 필요</li>
+								<li>전국을 17개 권역(시도)와 70개 지역(중진료권)으로 구분하여 권역·지역 책임의료기관 지정</li>
+							</ul>
+							<div class="img-box">
+								<img src="/resource/images/sub2-01-01.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">권역 &middot; 지역 책임의료기관 <br class="mb-hide">지정 현황</div>
+						<div class="cont">
+							<ul class="c-middot-list">
+								<li>2022.6 기준 &lt; 전국 16개소 권역책임의료기관과 42개소 지역책임의료기관 지정완료 &gt;</li>
+							</ul>
+							<p>&nbsp;</p>
+							<div class="tableType-01 text-center">
+								<table>
+									<thead>
+										<tr>
+											<th>시도</th>
+											<th>권역책임의료기관</th>
+											<th>진료권</th>
+											<th>지역책임의료기관</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th rowspan="4">서울</th>
+											<td rowspan="4">서울대학교병원</td>
+											<td>서울서북</td>
+											<td>서울적십자병원</td>
+										</tr>
+										<tr>
+											<td>서울동북</td>
+											<td>서울의료원</td>
+										</tr>
+										<tr>
+											<td>서울서남</td>
+											<td>서울특별시 서남병원</td>
+										</tr>
+										<tr>
+											<td>서울동남</td>
+											<td>서울특별시 보라매병원</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<ul class="c-middot-list">
+								<li>2022.6.15. 서울 서남권 지역책임의료기관 지정(보건복지부)</li>
+							</ul>
+							<div class="img-box">
+								<img src="/resource/images/sub2-01-02.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="cont-label">공공보건의료 협력체계 <br class="mb-hide">추진사업</div>
+						<div class="cont">
+							<ul class="square-list">
+								<li>
+									<img src="/resource/images/sub2-01-icon-01.png" alt="">
+									<p>
+										필수보건의료 협의체<br>
+										구성 및 운영
+									</p>
+									<ul class="c-middot-list">
+										<li>지역사회 필수보건의료 자원 조사 방안 논의 및 문제 진단 개선방향 검토</li>
+										<li>협력사업 수행을 위한 지역기관 간 업무 프로세스 및 협력방안 논의</li>
+									</ul>
+								</li>
+								<li>
+									<img src="/resource/images/sub2-01-icon-02.png" alt="">
+									<p>
+										필수보건의료<br>
+										협력사업 수행
+									</p>
+									<ul class="c-middot-list">
+										<li>퇴원환자 지역사회 연계</li>
+										<li>중증응급이송·전원 및 진료협력</li>
+										<li>감염 및 환자안전 관리</li>
+										<li>재활의료 및 지속관리협력</li>
+										<li>예방 및 건강관리</li>
+									</ul>
+								</li>
+								<li>
+									<img src="/resource/images/sub2-01-icon-03.png" alt="">
+									<p>
+										필수보건의료 기초조사<br>
+										및 문제진단
+									</p>
+									<span>
+										서울권역 및 서울 서남권 내<br>
+										필수보건의료 현황 조사 및 분석
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+</body>
+</html>

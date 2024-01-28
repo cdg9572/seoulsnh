@@ -1,0 +1,102 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+    include_once($GP->CLS."class.list.php");
+	include_once($GP->CLS."class.multi.php");
+	$C_ListClass 	= new ListClass;
+    $C_multi 	= new multi;
+
+    if($_POST['tm_content2'] == 2){$tm_content2 = "양천구";}
+    else if($_POST['tm_content2'] == 3){$tm_content2 = "강서구";}
+    else if($_POST['tm_content2'] == 4){$tm_content2 = "구로구";}
+    else if($_POST['tm_content2'] == 5){$tm_content2 = "금천구";}
+    else if($_POST['tm_content2'] == 6){$tm_content2 = "영등포구";}
+    else if($_POST['tm_content2'] == 7){$tm_content2 = "기타";}
+
+    $args = array( 		
+        "tm_menu" => "organ",	
+        "tm_content2" => $tm_content2 ,	
+        "tm_tab" => $_POST['tm_content2'] ,	
+        "tm_type" => $_GET['tm_type'],	
+		"show_row" => 10
+	) ;  
+  
+	$data = "";
+    $data = $C_multi->multi_List(array_merge($_GET,$_POST,$args));    
+    
+	$data_list 		= $data['data'];
+	$page_link 		= $data['page_info']['link'];
+	$page_search 	= $data['page_info']['search'];
+	$totalcount 	= $data['page_info']['total'];
+	
+	$totalpages 	= $data['page_info']['totalpages'];
+	$nowPage 		= $data['page_info']['page'];
+	$totalcount_l 	= number_format($totalcount,0);
+	
+    $data_list_cnt 	= count($data_list);
+    
+?>
+<table>
+    <colgroup>
+        <col style="width:90px">
+        <col style="width:210px">
+        <col style="width: 120px;">
+        <col style="width: 300px;">
+        <col style="">
+        <col style="width: 120px;">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>구분</th>
+            <th>지역</th>
+            <th>기관명</th>
+            <th>기관주소</th>
+            <th>홈페이지</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?
+$dummy =  $data_list_cnt ;                                        
+if($data_list_cnt > 0 ) {
+    for ($i = 0 ; $i < $data_list_cnt ; $i++) {
+        $tm_idx        = $data_list[$i]['tm_idx'];                                        
+        $tm_content1      = $data_list[$i]['tm_content1'];
+        $tm_content2      = $data_list[$i]['tm_content2'];
+        $tm_content3      = $data_list[$i]['tm_content3'];
+        $tm_content4      = $data_list[$i]['tm_content4'];
+        $tm_content5      = $data_list[$i]['tm_content5'];
+        $tm_content6      = $data_list[$i]['tm_content6'];
+        $tm_content7      = $data_list[$i]['tm_content7'];
+        $tm_content20      = $data_list[$i]['tm_content20'];
+        $tm_regdate    = $data_list[$i]['tm_regdate'];	
+        $tm_img        = $data_list[$i]['tm_img'];
+        
+        $b_img = '';                
+
+        $b_img = $GP -> UP_multi_URL . $tm_img;      
+        
+?>
+        <tr>
+            <td><?=$data['page_info']['start_num']--?></td>
+            <td><?=$tm_content1?></td>
+            <td><?=$tm_content2?></td>
+            <td>
+                <img src="<?=$b_img?>" alt="">
+                <p><?=$tm_content3?></p>
+            </td>
+            <td><?=$tm_content4?></td>
+            <td><a href="<?=$tm_content5?>" class="btn xs bg-blue" target="_blank">바로가기</a></td>
+        </tr>
+        <?
+$dummy--;
+        }
+    }else{
+        echo "<tr><td colspan='5' align='center'>데이터가 없습니다.</td></tr>";
+    }
+?>
+    </tbody>
+</table>
+<div class="pagination">
+    <?=$page_link?>
+</div>
+</div>

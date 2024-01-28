@@ -1,0 +1,280 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+    include_once $GP -> INC_WWW . '/head.php';
+    include_once($GP->CLS."class.list.php");
+	include_once($GP->CLS."class.multi.php");
+	$C_ListClass 	= new ListClass;
+    $C_multi 	= new multi;  
+    
+    $args = array( 		
+        "tm_menu" => "organ",	
+        "tm_type" => $_GET['tm_type'],	
+        "q_order" => "tm_desc desc, tm_regdate desc, tm_idx asc",	
+		"show_row" => 10
+	) ;  
+    
+  
+	$data = "";
+    $data = $C_multi->multi_List(array_merge($_GET,$_POST,$args));        
+	
+	$data_list 		= $data['data'];
+	$page_link 		= $data['page_info']['link'];
+	$page_search 	= $data['page_info']['search'];
+	$totalcount 	= $data['page_info']['total'];
+	
+	$totalpages 	= $data['page_info']['totalpages'];
+	$nowPage 		= $data['page_info']['page'];
+	$totalcount_l 	= number_format($totalcount,0);
+	
+    $data_list_cnt 	= count($data_list);
+
+    $data1 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "의료기관")));      
+    $data2 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "국가기관")));      
+    $data3 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "사회복지기관")));      
+    $data4 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "장애인복지시설")));      
+    $data5 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "공립특수학교")));      
+    $data6 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content1" => "지역장애인보건의료센터")));      
+
+    $data7 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "양천구")));      
+    $data8 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "금천구")));      
+    $data9 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "강서구")));      
+    $data10 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "영등포구")));      
+    $data11 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "구로구")));      
+    $data12 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ","tm_content2" => "기타")));      
+    $data13 = $C_multi->Multi_Topdate(array_merge($_GET,$_POST,array("tm_menu" => "organ")));    
+    $data14 = $C_multi->multi_List(array_merge($_GET,$_POST,array("tm_menu" => "organ", "tm_type" => $_GET['tm_type'])));          
+?>
+<style>
+	.noticeTable {border-width: 2px;}
+	.noticeTable table th {background-color: #fff;}
+	@media screen and (max-width:720px) {
+		.noticeTable {overflow-x: auto;}
+		.noticeTable table {min-width: 1300px;}
+	}
+</style>
+<body data-dep1="5" data-dep2="1">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-06.jpg" alt="">
+				<div class="inner">
+					<h2>협력기관</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>협력기관</h3>
+					</div>
+					<div class="siblings-wrap">
+						<div class="siblings-map">
+							<div class="map-wrap">
+								<img class="map_1" src="/resource/images/all-map.png" alt="서남권 전체">
+								<img class="map_2" src="/resource/images/map-01.png" alt="양천구" style="display: none;">
+								<img class="map_3" src="/resource/images/map-03.png" alt="강서구" style="display: none;">
+								<img class="map_4" src="/resource/images/map-05.png" alt="구로구" style="display: none;">
+								<img class="map_5" src="/resource/images/map-02.png" alt="금천구" style="display: none;">
+								<img class="map_6" src="/resource/images/map-04.png" alt="영등포구" style="display: none;">
+								<img class="map_7" src="/resource/images/map-06.png" alt="기타" style="display: none;">
+							</div>
+							<div class="map-info">
+								<div class="map-info-list center">
+									<p>기관별</p>
+									<ul>
+										<li>
+											<div class="name">의료기관</div>
+											<div class="ea"><span class="text-point"><?=count($data1['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">국가기관</div>
+											<div class="ea"><span class="text-point"><?=count($data2['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">사회복지기관</div>
+											<div class="ea"><span class="text-point"><?=count($data3['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">장애인복지시설</div>
+											<div class="ea"><span class="text-point"><?=count($data4['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">공립특수학교</div>
+											<div class="ea"><span class="text-point"><?=count($data5['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">지역장애인보건의료센터</div>
+											<div class="ea"><span class="text-point"><?=count($data6['data'])?></span>개</div>
+										</li>
+									</ul>
+								</div>
+								<div class="map-info-list place">
+									<p>구역별</p>
+									<ul>
+										<li>
+											<div class="name">양천구</div>
+											<div class="ea"><span class="text-point"><?=count($data7['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">강서구</div>
+											<div class="ea"><span class="text-point"><?=count($data9['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">구로구</div>
+											<div class="ea"><span class="text-point"><?=count($data11['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">금천구</div>
+											<div class="ea"><span class="text-point"><?=count($data8['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">영등포구</div>
+											<div class="ea"><span class="text-point"><?=count($data10['data'])?></span>개</div>
+										</li>
+										<li>
+											<div class="name">기타</div>
+											<div class="ea"><span class="text-point"><?=count($data12['data'])?></span>개</div>
+										</li>
+									</ul>
+								</div>
+								<div class="map-info-list all">
+									<ul>
+										<li class="w100p">
+											<div class="name">전체</div>
+											<div class="ea"><span class="text-point"><?=count($data14['data'])?></span>개</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="siblings-table">
+							<ul id="tab" class="no-li-side">
+								<li class="on"><a href="#none">전체</a></li>
+								<li><a href="#none">양천구</a></li>
+                                <li><a href="#none">강서구</a></li>
+                                <li><a href="#none">구로구</a></li>
+								<li><a href="#none">금천구</a></li>							
+								<li><a href="#none">영등포구</a></li>
+								<li><a href="#none">기타</a></li>
+							</ul>
+							<p class="mb-show" style="font-size: 24px;text-align: center;margin-bottom: 10px;">← 좌우로 슬라이드 하세요 →</p>
+							<p style="font-size: 20px;margin-bottom: 10px;">기준일  <?= date("Y.m.d", strtotime($data13["0"]['tm_regdate']))?></p>
+                           
+							<div class="noticeTable text-center" id="organ_list">
+								<table>
+									<colgroup>
+										<col style="width:90px">
+										<col style="width:210px">
+										<col style="width: 120px;">
+										<col style="width: 300px;">
+										<col style="">
+										<col style="width: 120px;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>구분</th>
+											<th>지역</th>
+											<th>기관명</th>
+											<th>기관주소</th>
+											<th>홈페이지</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    <?
+                                        $dummy =  $data_list_cnt ;                                        
+                                        if($data_list_cnt > 0 ) {
+                                            for ($i = 0 ; $i < $data_list_cnt ; $i++) {
+                                                $tm_idx        = $data_list[$i]['tm_idx'];                                        
+                                                $tm_content1      = $data_list[$i]['tm_content1'];
+                                                $tm_content2      = $data_list[$i]['tm_content2'];
+                                                $tm_content3      = $data_list[$i]['tm_content3'];
+                                                $tm_content4      = $data_list[$i]['tm_content4'];
+                                                $tm_content5      = $data_list[$i]['tm_content5'];
+                                                $tm_content6      = $data_list[$i]['tm_content6'];
+                                                $tm_content7      = $data_list[$i]['tm_content7'];
+                                                $tm_content20      = $data_list[$i]['tm_content20'];
+                                                $tm_regdate    = $data_list[$i]['tm_regdate'];	
+                                                $tm_img        = $data_list[$i]['tm_img'];
+                                                
+                                                $b_img = '';                
+                                    
+                                                $b_img = $GP -> UP_multi_URL . $tm_img;      
+                                                
+                                    ?>
+                                        <tr>
+                                            <td><?=$data['page_info']['start_num']--?></td>
+											<td><?=$tm_content1?></td>
+											<td><?=$tm_content2?></td>
+											<td>
+                                                <img src="<?=$b_img?>" alt="">
+												<p><?=$tm_content3?></p>
+											</td>
+											<td><?=$tm_content4?></td>
+											<td><a href="<?=$tm_content5?>" class="btn xs bg-blue" target="_blank">바로가기</a></td>
+										</tr>		
+                                        <?
+										$dummy--;
+                                                }
+                                            }else{
+                                                echo "<tr><td colspan='5' align='center'>데이터가 없습니다.</td></tr>";
+                                            }
+                                        ?>			
+										<!-- <tr>
+											<td>1</td>
+											<td>지역장애인보건의료센터</td>
+											<td>양천구</td>
+											<td>
+												<img src="/resource/images/logo-sample.png" alt="">
+												<p>양천구청 돌봄SOS센터</p>
+											</td>
+											<td>서울특별시 양천구 목동동로 105</td>
+											<td><a href="" class="btn xs bg-blue" target="_blank">바로가기</a></td>
+										</tr>									 -->
+									</tbody>
+								</table>
+                                <div class="pagination">
+                                    <?=$page_link?>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+		$(function(){
+            var tm_tab = "<?=$_GET['tm_tab']?>" ;            
+            if (tm_tab > 1) {
+                $("#tab li:eq(<?=$_GET['tm_tab'] -1 ?>)").addClass("on").siblings().removeClass("on");
+                $(".map-wrap .map_"+tm_tab).show().siblings().hide();
+     
+            }
+			$("#tab li").on("click",function(){
+                var idx = $(this).index()+1;
+				$(this).addClass("on").siblings().removeClass("on");
+                $(".map-wrap .map_"+idx).show().siblings().hide();
+
+                $.ajax({
+                    type: "POST",
+                    url: "page01_ajax.html",
+                    data: "tm_content2=" + idx,
+                    dataType: "text",
+                    success: function (data) {
+                        $('#organ_list').empty();
+                        $('#organ_list').append(data);
+                    },
+                    error : function(request,status,error){
+                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
+			});
+        });
+        
+	</script>
+</body>
+</html>

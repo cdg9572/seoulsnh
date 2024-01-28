@@ -1,0 +1,93 @@
+<?php
+	include $_SERVER["DOCUMENT_ROOT"]."/inc/head.php";
+?>
+<body data-dep1="0" data-dep2="0">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-01.jpg" alt="">
+				<div class="inner">
+					<h2>인사말</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>인사말</h3>
+					</div>
+					<div class="introduce-video video no-border">
+						<video id="myvideo" src="/resource/video/interview2.mp4" autoplay muted playsinline loop controls></video>
+						<!-- <div class="control">
+							<button type="button" class="full-btn" title="전체화면"><img src="/resource/images/fullscreen.png" alt="전체화면"></button>
+						</div> -->
+					</div>
+					<div class="introduce-wrap">
+						<div class="introduce-text">
+							<h4>
+								&nbsp;&nbsp;안녕하십니까? <br>
+								<span>“천만 서울시민 여러분”</span><br>
+								&nbsp;&nbsp;서울특별시 서남병원 <br>
+								<span>“공공의료본부장 장영수”</span>입니다.
+							</h4>
+							<h5>“반복되는 감염병의 위기”</h5>
+							<p>
+								코로나-19 감염병과의 불편한 동행이 끝나기도 전에 세계보건기구(WHO)는 전 세계 각국으로 확산된 M두창(MPOX) 감염 사태에 대해 국제적 공중보건 비상사태(PHEIC)를 선언했습니다. <br>
+								2002년 사스, 2009년 신종플루, 2015년 메르스와 같은 감염병 위기 상황을 겪으며 공공의료에 대한 필요성이 어느 때보다 절실해 진 것 같습니다.
+							</p>
+							<h5>“시민의 건강한 삶을 위해 반드시 존재해야 하는 공공병원, 공공의료”</h5>
+							<p>
+								공공병원은 경제성을 뛰어넘어 반드시 존재해야 하는 사회기반 시설로 시민의 건강한 삶을 지키기 위한 사회 안전망의 기능도 하고 있습니다. <br>
+								국가적 의료 위기 상황에서 제대로 된 의료시스템이 갖춰줘야 시민 모두의 안전과 건강을 책임질 수 있듯이 서남병원은 앞으로도 정부와 지자체 그리고 시민과 함께 신뢰받는 공공보건의료서비스를 수행하기 위한 노력을 다할 것입니다.
+							</p>
+							<h5>“보건복지부 선정 서울 서남권 지역책임의료기관, 서울특별시 서남병원”</h5>
+							<p>
+								그동안 서남병원은 서울 서남권을 대표하는 공공병원으로서 지역내에서 발생하는 다양한 의료불균형을 해소하기 위한 공공의료사업을 지속해왔습니다. <br>
+								더욱이 지난 2022년 4월, 보건복지부가 지역 필수의료서비스 강화를 위해 지정한 지역책임의료기관으로 선정된 후 서울 서남권 보건의료기관들과 공공보건의료서비스 협력 모델을 선도적으로 구축해나가고 있습니다.
+							</p>
+							<h5>“공공의료가 건강한 싹을 틔울 수 있도록 역동적인 서남이 되겠습니다”</h5>
+							<p>
+								시민 모두와 동행하기 위한 서남병원은  &lt;서남동행&gt; 홈페이지를 시작으로 서울 서남권 유관기관들과 상호 협력을 강화하고 온&middot;오프라인 경계를 허물어 보다 역동적인 공공의료본부로 발전해나갈 것입니다.<br>
+								서남병원 공공의료서비스가 건강한 싹을 틔울 수 있도록 시민 여러분의 따뜻한 관심과 참여 바랍니다.
+							</p>
+							<p style="text-indent: 0;">
+								감사합니다.
+							</p>
+							<p class="sign">2022년 12월 31일 <br>서울특별시 서남병원 공공의료본부장<br><img src="/resource/images/sign.jpg" alt="장영수" height="55"></p>
+						</div>
+						<div class="introduce-img">
+							<img src="/resource/images/sub1-01-01.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+		// $('.video').on({
+		// 	'mouseenter': function () {
+		// 		$('.video video').prop('muted', false);
+		// 	},
+		// 	'mouseout': function () {
+		// 		$('.video video').prop('muted', true);
+		// 	},
+		// });
+		$('.video .full-btn').on('click',function(){
+			console.log('dd');
+			var vid = document.getElementById("myvideo");
+			if(vid.requestFullScreen){
+				vid.requestFullScreen();
+			} else if(vid.webkitRequestFullScreen){
+				vid.webkitRequestFullScreen();
+			} else if(vid.mozRequestFullScreen){
+				vid.mozRequestFullScreen();
+			}
+			
+		});
+		
+	</script>
+</body>
+</html>

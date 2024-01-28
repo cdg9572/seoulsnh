@@ -1,0 +1,224 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+include_once $GP -> INC_WWW . '/head.php';
+
+$index_page = "page01.html";
+$query_page = "query.php";
+$jb_code = "30";
+$sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $mb_email2, "class='form-control w20p'",'::::직접입력::::');
+
+?>
+<style>
+	.noticeTable {border-width: 2px;}
+	.eduTable table th {background-color: #fff;}
+	.btn:not(.bg-blue) {cursor: default;}
+	.btn:not(.bg-blue):hover {opacity: 1;}
+	.noticeTable table thead th,
+	.noticeTable table tbody td,
+	.noticeTable table tbody th {padding:30px 20px;}
+	.noticeTable table tbody td.subject {padding:30px 20px 30px 50px;}
+</style>
+<body data-dep1="3" data-dep2="0">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-04.jpg" alt="">
+				<div class="inner">
+					<h2>교육행사 신청</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+            <?php include $GP -> INC_PATH ."/board_inc.php"; ?>
+			<!--
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>교육행사 신청</h3>
+					</div>
+					<div class="contents-filter">
+						<h3 class="caption">상세검색</h3>                       
+                        <form id="search_form" name="search_form" method="get" action="?">
+                            <input type="hidden" name="jb_code" id="jb_code" value="60">
+						<div class="filter-wrap">                      
+							<div class="filter class">
+								<label for="">분류</label>
+								<select name="" id="" class="form-control">
+									<option value="">전체</option>
+									<option value="">보건의료기관 종사자</option>
+									<option value="">환자 · 보호자</option>
+									<option value="">공통</option>
+									<option value="">기타</option>
+								</select>	
+							</div>
+							<div class="filter division">
+								<label for="">구분</label>
+								<select name="" id="" class="form-control">
+									<option value="">전체</option>
+									<option value="">교육</option>
+									<option value="">행사</option>
+								</select>	
+							</div>
+							<div class="filter date">
+								<label for="">신청기간</label>
+								<input type="text" id="datepicker" class="form-control" name="s_date" value="" readonly="">
+								<span>-</span>
+								<input type="text" id="datepicker2" class="form-control" name="e_date" value="" readonly="">
+							</div>  
+							<div class="filter ing">
+								<label for="">상태</label>
+								<select name="" id="" class="form-control">
+									<option value="">전체</option>
+									<option value="">신청가능</option>
+									<option value="">신청마감</option>
+									<option value="">종료</option>
+								</select>	
+							</div>    
+							<div class="filter search">
+								<label for="">검색</label>
+								<div class="search-wrap">
+									<input type="text" class="form-control" name="" value="">
+									<button type="submit"><img src="/resource/images/gray-search.png" alt="검색"></button>
+								</div>
+							</div>   
+						</div>   
+                        </form>                     
+					</div>
+					<div class="noticeTable text-center">
+						<table>
+							<colgroup>
+								<col style="width: 90px;">
+								<col style="width: 150px;">
+								<col style="">
+								<col style="width: 215px;">
+								<col style="width: 215px;">
+								<col style="width: 120px;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>분류</th>
+									<th>교육&middot;행사명[장소]</th>
+									<th>신청기간</th>
+									<th>교육&middot;행사일정</th>
+									<th>상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>3</td>
+									<td>
+										보건의료기관<br>
+										종사자 교육
+									</td>
+									<td class="subject">
+										<a href="page01-view.html">
+											2022년 울산권역 감염관리 역량 강화 워크숍<br>
+											[울산 머큐어 앰배서더 호텔 마르세유홀]
+										</a>
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										<div class="btn xs bg-blue w100p">신청가능</div>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>
+										환자 &middot; 보호자
+									</td>
+									<td class="subject">
+										<a href="">
+											2022년 울산권역 감염관리 역량 강화 워크숍<br>
+											[울산 머큐어 앰배서더 호텔 마르세유홀]
+										</a>
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										<div class="btn xs bg-gray w100p">신청마감</div>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>
+										공통
+									</td>
+									<td class="subject">
+										<a href="">
+											2022년 울산권역 감염관리 역량 강화 워크숍<br>
+											[울산 머큐어 앰배서더 호텔 마르세유홀]
+										</a>
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<td>
+										<div class="btn xs bg-black w100p">종료</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="pagination">
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="처음으로 이동하기" class="page-btn prev">
+                            <span><img src="/resource/images/page-all-left.png" width="100%" alt=""></span>
+                        </a>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="이전으로 이동하기" class="page-btn prev">
+                            <span><img src="/resource/images/page-left.png" width="100%" alt=""></span>
+                        </a>
+                        <strong class="page-btn current" title="현재 페이지">1</strong>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="다음 페이지 이동하기" class="page-btn next">
+                            <span><img src="/resource/images/page-right.png" width="100%" alt=""></span>
+                        </a>
+                        <a href="?page=1&amp;jb_code=10&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
+                            title="마지막 페이지 이동하기" class="page-btn next">
+                            <span><img src="/resource/images/page-all-right.png" "="" width=" 100%" alt=""></span>
+                        </a>
+                    </div>
+				</div>
+			</div>-->
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+	<script>
+		$.datepicker.setDefaults({
+			dateFormat: 'yy-mm-dd',
+			prevText: '이전 달',
+			nextText: '다음 달',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			showMonthAfterYear: true,
+			yearSuffix: '년',
+		});
+		$(function(){
+			$("#datepicker, #datepicker2").datepicker();
+		});
+	</script>
+</body>
+</html>

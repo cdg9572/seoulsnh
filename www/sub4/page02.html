@@ -1,0 +1,278 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+include_once $GP -> INC_WWW . '/head.php';
+    include_once($GP->CLS."class.list.php");
+	include_once($GP->CLS."class.multi.php");
+	$C_ListClass 	= new ListClass;
+    $C_multi 	= new multi;
+    
+	$args = array( 		
+        "tm_menu" => "education",	
+        "tm_content2" =>$_GET['tm_content2'],	
+        "tm_content3" =>$_GET['tm_content3_1']. "-" .$_GET['tm_content3_2']. "-" .$_GET['tm_content3_3'],	
+        "tm_content6" =>$_GET['tm_content6_1']. "@" .$_GET['tm_content6_2'],	
+        "tm_content7" =>$_GET['tm_content7'],	
+		"show_row" => 10,
+		"pagetype" => "admin"
+    ) ;  
+    
+  
+	$data = "";
+    $data = $C_multi->multi_List(array_merge($_GET,$_POST,$args));    
+	
+	$data_list 		= $data['data'];
+	$page_link 		= $data['page_info']['link'];
+	$page_search 	= $data['page_info']['search'];
+	$totalcount 	= $data['page_info']['total'];
+	
+	$totalpages 	= $data['page_info']['totalpages'];
+	$nowPage 		= $data['page_info']['page'];
+	$totalcount_l 	= number_format($totalcount,0);
+	
+	$data_list_cnt 	= count($data_list);
+$sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $mb_email2, "class='form-control w20p'",'::::선택::::');
+if($_GET['tm_content7']){
+    echo "<style> .cooperation-modal-wrap {display: block;}</style>" ;
+}
+?>
+<style>
+	.noticeTable {border-width: 2px;}
+	.noticeTable table th {text-align: left;}
+	.btn {cursor: default;}
+	.btn:hover {opacity: 1;}
+	.noticeTable table thead th,
+	.noticeTable table tbody td,
+	.noticeTable table tbody th {padding:30px;}
+	.cooperation-modal-cont,
+	.cooperation-modal {max-width: 1300px;}
+	.form {padding-top: 0;}
+	.modal-body .tableType-01 {overflow-x: auto;}
+	.modal-body .tableType-01 table {min-width: 1000px;}
+	@media screen and (max-width:720px) {
+		.noticeTable table,
+		.noticeTable table thead,
+		.noticeTable table tbody,
+		.noticeTable table thead th,
+		.noticeTable table tbody td,
+		.noticeTable table tbody th {display: block;width: 100%;box-sizing: border-box;}
+		.noticeTable table tbody td small {display: inline-block;font-size: 22px;margin-top: 10px;}
+
+	}
+</style>
+<body data-dep1="3" data-dep2="1">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-03.jpg" alt="">
+				<div class="inner">
+					<h2>신청 확인</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+            <form name="base_form" id="base_form" method="GET" action="?" enctype="multipart/form-data">
+				<div class="contents half-top-pad no-bottom-pad">
+					<div class="inner">
+						<div class="sub-tit bar center">
+							<h3>신청 확인</h3>
+						</div>
+						<div class="noticeTable">
+							<table>
+								<colgroup>
+									<col style="width: 200px;">
+									<col>
+								</colgroup>
+								<tbody>
+								<tr>
+										<th>신청자명 <small class="text-point">(필수)</small></th>
+										<td>
+											<div class="form">
+												<input type="text" class="form-control w20p" id="tm_content2" name="tm_content2" value="<?=$_GET['tm_content2']?>">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>신청자 연락처 <small class="text-point">(필수)</small></th>
+										<td>
+											<div class="form">
+												<input type="text" class="form-control w20p" id="tm_content3_1" name="tm_content3_1" value="<?=$_GET['tm_content3_1']?>">
+												<span class="form-bar">&nbsp;-&nbsp;</span>
+												<input type="text" class="form-control w20p" id="tm_content3_2" name="tm_content3_2" value="<?=$_GET['tm_content3_2']?>">
+												<span class="form-bar">&nbsp;-&nbsp;</span>
+												<input type="text" class="form-control w20p" id="tm_content3_3" name="tm_content3_3" value="<?=$_GET['tm_content3_3']?>"> 
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>이메일 <small class="text-point">(필수)</small></th>
+										<td>
+											<div class="form">
+												<input type="text" class="form-control w20p" id="tm_content6_1" name="tm_content6_1" value="<?=$_GET['tm_content6_1']?>">
+												<span class="form-bar">@</span>
+												<input type="text" class="form-control w20p" id="tm_content6_2" name="tm_content6_2" value="<?=$_GET['tm_content6_2']?>">
+												<span class="form-bar">&nbsp;&nbsp;&nbsp;</span>
+												<?=$sel_email?>			
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>비밀번호 <small class="text-point">(필수)</small></th>
+										<td>
+											<div class="form" style="flex-wrap: wrap;">
+												<input type="password" class="form-control w20p" id="tm_content7" name="tm_content7" value="<?=$_GET['tm_content7']?>">
+												<span class="form-bar w100p" style="line-height: 1;"><small>*비밀번호는 신청시 입력한 정보를 입력해주세요.</small></span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="contents half-top-pad">
+					<div class="inner">
+						<div id="btn-group" class="center no-pad">
+							<button type="button" class="btn put" id="img_submit">조회하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+						</div>
+					</div>
+				</div>
+            </form>
+			<!-- 
+				신청 모달
+			 -->
+			<div class="cooperation-modal-wrap">
+				<div class="cooperation-modal-cont">
+					<div class="cooperation-modal">
+						<h5 class="modal-head">
+							신청 조회 <img src="/resource/images/cooperation-icon.png" alt="">
+						</h5>
+						<div class="modal-body">
+							<p class="mb-show" style="font-size: 24px;margin-bottom: 10px;text-align: center;">← 좌우로 슬라이드 하세요 →</p>
+							<div class="tableType-01 text-center">
+								<table>
+									<colgroup>
+										<col>
+										<col style="width:120px">
+										<col style="width:180px">
+										<col style="width:140px">
+										<col style="width:140px">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>교육/행사명</th>
+											<th>담당자</th>
+											<th>연락처</th>
+											<th>상태</th>
+											<th>접수일</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?
+										$dummy = 1;
+										if($data_list_cnt > 0 ) {
+											for ($i = 0 ; $i < $data_list_cnt ; $i++) {
+												$tm_idx        = $data_list[$i]['tm_idx'];                                        
+												$tm_content1      = $data_list[$i]['tm_content1'];
+												$tm_content2      = $data_list[$i]['tm_content2'];
+												$tm_content3      = $data_list[$i]['tm_content3'];
+												$tm_content4      = $data_list[$i]['tm_content4'];
+												$tm_content5      = $data_list[$i]['tm_content5'];
+												$tm_content6      = $data_list[$i]['tm_content6'];
+												$tm_content7      = $data_list[$i]['tm_content7'];
+												$tm_content20      = $data_list[$i]['tm_content20'];
+												$tm_regdate    = $data_list[$i]['tm_regdate'];	
+												if($tm_content20 == "A"){
+													$tm_content20 = '<div class="btn xs bg-blue w100p">접수</div>' ;
+												}
+												else if($tm_content20 == "B"){
+													$tm_content20 = '<div class="btn xs bg-gray w100p">확인중</div>' ;
+												}
+												else if($tm_content20 == "C"){
+													$tm_content20 = '<div class="btn xs bg-black w100p">완료</div>' ;
+												}
+										?>
+										<tr>
+											<td><?=$tm_content1?></td>
+											<td><?=$tm_content2?></td>
+											<td><?=$tm_content3?></td>
+											<td><?=$tm_content20?></td>
+											<td><?=$tm_regdate?></td>
+										</tr>
+										<?
+										$dummy++;
+												}
+											}else{
+												echo "<tr><td colspan='5' align='center'>데이터가 없습니다.</td></tr>";
+											}
+										?>			
+										<!-- <tr>
+											<td>2022년 서남권역 감염관리 역량 강화 워크숍</td>
+											<td>홍길동</td>
+											<td>010-0000-0000</td>
+											<td><div class="btn xs bg-gray w100p">확인중</div></td>
+											<td>2022.12.12</td>
+										</tr>
+										<tr>
+											<td>2022년 서남권역 감염관리 역량 강화 워크숍</td>
+											<td>홍길동</td>
+											<td>010-0000-0000</td>
+											<td><div class="btn xs bg-black w100p">완료</div></td>
+											<td>2022.12.12</td>
+										</tr> -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="btn-group" class="center">
+							<button type="button" class="btn put" onclick="$('.cooperation-modal-wrap').hide();">확인</button>
+						</div>
+					</div>
+					<a href="#none" class="close" onclick="$('.cooperation-modal-wrap').hide();"><img src="/resource/images/modal-close.png" alt="닫기"></a>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+		</div>
+	</div>
+	<script>		
+		$('#email_sel').change(function(){
+			var val = $(this).val();
+
+			if(val == "") {
+				$('#tm_content6_2').val('');
+			}else{
+				$('#tm_content6_2').val(val);
+			}
+		});
+		$("#img_submit").click(function(){
+			if($('#tm_content2').val() == '')	{
+				alert('신청자명을 정확히 입력하세요');
+				$('#tm_content2').focus();
+			return false;
+			}	 
+			
+			if($('#tm_content3_1').val() == '' || $('#tm_content3_2').val() == '' || $('#tm_content3_3').val() == '')	{
+				alert('연락처를 정확히 입력하세요');
+				$('#tm_content3_1').focus();
+				return false;
+			}	
+					
+			if($('#tm_content6_1').val() == '')	{
+				alert('이메일을 정확히 입력하세요');
+				$('#tm_content6_1').focus();
+			return false;
+			}	 
+
+			if($('#tm_content7').val() == '')	{
+				alert('비밀번호를 정확히 입력하세요');
+				$('#tm_content7').focus();
+			return false;
+			}	 
+			$("#base_form").attr("action","/sub4/page02.html");
+			$("#base_form").submit();                 
+			
+			return false;
+		});			
+	</script>
+</body>
+</html>

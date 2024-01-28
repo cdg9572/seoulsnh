@@ -1,0 +1,200 @@
+<?php
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+	include $_SERVER["DOCUMENT_ROOT"]."/inc/head.php";
+	$sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $mb_email2, "class='form-control w20p'",'::::선택::::');
+?>
+<style>
+	.noticeTable {border-width: 2px;}
+	.noticeTable table tbody td {padding-left:30px;}
+	.viewTable {border: 1px solid #e1e1e1;}
+	.form-label {width: 150px;}
+</style>
+<body data-dep1="3" data-dep2="0">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-04.jpg" alt="">
+				<div class="inner">
+					<h2>교육행사 신청</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-pad">
+				<div class="inner">
+					<div class="sub-tit bar center">
+						<h3>교육행사 신청</h3>
+					</div>
+					<div class="noticeTable">
+						<table>
+							<colgroup>
+								<col style="width: 216px;">
+								<col style="">
+								<col style="width: 216px;">
+								<col style="">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>교육/행사명</th>
+									<td>2022년 서남권역 감염관리 역량 강화 워크숍</td>
+									<th>교육/행사 일시</th>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+								</tr>
+								<tr>
+									<th>신청기간</th>
+									<td>
+										2022-10-17 00:00 -<br>
+										2022-11-15 23:00
+									</td>
+									<th>장소</th>
+									<td>동작초등학교 000 000</td>
+								</tr>
+								<tr>
+									<th>모집인원</th>
+									<td>100000명</td>
+									<th>담당자/문의</th>
+									<td>홍길동</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-pad">
+				<div class="inner">
+					<div class="viewTable">
+						<div class="viewTable_cont">
+                             내용 또는 이미지가 들어갑니다.<br>
+							 이렇게<br>
+							<img src="/resource/images/sub-bnnr-01.png" alt="">
+						</div>
+					</div>
+					<ul class="viewTable_file">
+						<li><a href="" download>첨부파일.pdf</a></li>
+						<li><a href="" download>첨부파일.hwp</a></li>
+						<li><a href="" download>첨부파일.doc</a></li>
+						<li><a href="" download>첨부파일.xlsx</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<div id="btn-group" class="center no-pad">
+						<a href="#none" class="btn bg-blue w15p" onclick="$('.cooperation-modal-wrap').show()">신청하기</a>
+						<!-- <a href="" class="btn bg-green w15p">단체신청</a> -->
+						<a href="" class="btn bg-black w15p">목록</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+				신청 모달
+			 -->
+			<div class="cooperation-modal-wrap">
+				<div class="cooperation-modal-cont">
+					<div class="cooperation-modal">
+						<h5 class="modal-head">
+							교육행사 신청하기 <img src="/resource/images/cooperation-icon.png" alt="">
+						</h5>
+						<div class="modal-body">
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 비회원 신청</h6>
+							<div class="form">
+								<label for="" class="form-label">신청자명 <small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control" id="" name="">
+							</div>
+							<div class="form">
+								<label for="" class="form-label">신청자연락처<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w10p" id="jb_mobile1" name="jb_mobile1" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="jb_mobile2" name="jb_mobile2" value="">
+								<span class="form-bar">-</span>
+								<input type="text" class="form-control w10p" id="jb_mobile3" name="jb_mobile3" value=""> 
+							</div>
+							<div class="form">
+								<label for="" class="form-label">기관명 <small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control" id="" name="">
+							</div>
+							<!-- 23-01-05 추가 -->
+							<div class="form">
+								<label for="" class="form-label">직종 <small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w33p" id="" name="">
+							</div>
+							<!-- //end 23-01-05 추가 -->
+							<div class="form">
+								<label for="" class="form-label">인원수 <small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w15p" id="" name="">
+								<span class="form-bar">명</span>
+							</div>
+							<div class="form">
+								<label for="" class="form-label">이메일<small class="text-point">(필수)</small></label>
+								<input type="text" class="form-control w20p" id="tm_content16_1" name="tm_content16_1">
+								<span class="form-bar">@</span>
+								<input type="text" class="form-control w20p" id="tm_content16_2" name="tm_content16_2">&nbsp;
+								<?=$sel_email?>							
+							</div>
+							<div class="form">
+								<label for="" class="form-label">비밀번호<small class="text-point">(필수)</small></label>
+								<input type="password" class="form-control w33p" id="jb_password" name="jb_password">
+							</div>
+
+							<h6 class="modal-sub-head"><span class="text-point">●</span> 개인정보 수집&middot;이용동의</h6>
+							<div class="agree-wrap">
+								<div class="agree-box">
+									<p class="agree-box-text">서울특별시 서남병원은 프로그램 제공에 필요한 개인정보를 아래와 같이 수집 및 이용하고 있습니다. 아래의 사항을 충분히 읽어 보신 후 동의여부를 확인하여 주시기 바랍니다. 단, 14세 미만 아동의 경우 신청이 불가능합니다.</p>
+									<div class="noticeTable">
+										<table>
+											<caption style="opacity: 0;height: 0;overflow: hidden;">개인정보 수집·이용 동의에 대한 표로 수집목적, 수집항목, 보유기간, 동의거부 시 불이익에 대한 정보 제공</caption>
+											<colgroup>
+												<col style="width:30%">
+												<col style="width:auto">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집목적</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">교육·행사연계 신청 내역에 대한 접수 및 운영</td>
+												</tr>
+												<tr>
+													<th scope="row">수집항목</th>
+													<td class="tl">[필수] 이름, 비밀번호, 연락처, 기관명, 인원수, 이메일</td>
+												</tr>
+												<tr>
+													<th scope="row">보유기간</th>
+													<td class="tl" style="font-size:1.056em;font-weight:500">3년</td>
+												</tr>
+												<tr>
+													<th scope="row">동의거부 시 불이익</th>
+													<td class="tl">귀하는 동의를 거부할 권리가 있습니다. 그러나 개인정보 수집에 동의하지 않으실 경우 교육·행사연계 신청을 하실 수 없습니다. </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>							
+								</div>
+								<p class="agree-box-text">위와 같이 개인정보를 수집·이용하는 것에 동의하십니까?</p>
+								<div class="check-group">
+									<div class="check-list">
+										<input type="radio" id="radio1" name="agreeChk" value="Y">
+										<label for="radio1">동의함</label>
+									</div>
+									<div class="check-list">
+										<input type="radio" id="radio2" name="agreeChk" value="N">
+										<label for="radio2">동의안함</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="btn-group" class="center">
+							<button type="submit" class="btn put">신청하기 <img src="/resource/images/put-arrow.png" alt=""></button>
+						</div>
+					</div>
+					<a href="#none" class="close" onclick="$('.cooperation-modal-wrap').hide();"><img src="/resource/images/modal-close.png" alt="닫기"></a>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+</body>
+</html>

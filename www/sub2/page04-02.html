@@ -1,0 +1,42 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/_init.php';
+include_once $GP -> INC_WWW . '/head.php';
+
+$index_page = "page04-02.html";
+$query_page = "query.php";
+$jb_code = "20";
+
+?>
+<body data-dep1="0" data-dep2="3">
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="/resource/images/sub-bnnr-02.jpg" alt="">
+				<div class="inner">
+					<h2>정기간행물 - 서남동행N</h2>
+					<p>세상 어디에도 없는 공공의료를 만들어갑니다.</p>
+				</div>
+			</div>
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/location.php"; ?>
+			<div class="contents half-top-pad">
+				<div class="inner">
+					<!-- <ul id="tab">
+                        <li><a href="page04-01.html">필수보건의료 기초조사 보고서</a></li>
+                        <li class="on"><a href="page04-02.html">정기 간행물</a></li>
+                    </ul> -->
+                    <div class="sub-tit bar center">
+                        <h3>정기간행물 - 서남동행N</h3>
+                    </div>
+					<?php include $GP -> INC_PATH ."/board_inc.php"; ?>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+	</div>
+    <?if($_GET['file']){?>    
+	<script>location.href='/bbs/download.php?downview=1&file=<?=$_GET['file']?>&name=<?=$_GET['name']?>';</script>
+    <?}?>
+	
+</body>
+</html>

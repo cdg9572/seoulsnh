@@ -1,0 +1,136 @@
+<?php
+    include_once  './_init.php';
+    include_once $GP -> INC_WWW . '/head.php';
+    include_once $GP -> HOME."main_lib/main_proc.php";
+
+    $Main_SlideA = Main_Slide("A");//
+    $Main_SlideB = Main_Slide("B");//
+
+?>
+<body>
+	<div id="wrap">
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/header.php"; ?>
+		<div id="container">
+			<div id="main-bnnr">
+				<video class="pc" src="/resource/video/main-video.mp4"style="width: 100%;" autoplay muted loop playsinline></video>
+				<video class="mobile" src="/resource/video/main-video2.mp4"style="width: 100%;" autoplay muted loop playsinline></video>
+			</div>
+			<div id="main-business" class="contents half-top-pad no-bottom-pad">
+				<div class="inner">
+					<h2>주요사업</h2>
+					<ul>
+						<li>
+							<a href="/sub2/page01.html">
+								<div class="img"><img src="/resource/images/main-business-01.png" alt=""></div>
+								<p>사업소개</p>
+								<span>
+									보건 &middot; 의료 &middot; 복지기관 간 <br>
+									공공보건의료 협력체계 구축사업
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="/sub2/page02-01.html">
+								<div class="img"><img src="/resource/images/main-business-02.png" alt=""></div>
+								<p>협력체계구축</p>
+								<span>
+									필수보건의료 원내 &middot; 원외 협의체 <br>
+									구성 및 운영
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="/sub2/page03-01.html">
+								<div class="img"><img src="/resource/images/main-business-03.png" alt=""></div>
+								<p>협력사업 수행</p>
+								<span>
+									필수보건의료 협력모델 <br>
+									개발 및 수행
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="/sub2/page04-01.html">
+								<div class="img"><img src="/resource/images/main-business-04.png" alt=""></div>
+								<p>기초조사 수행</p>
+								<span>
+									필수보건의료 문제 <br>
+									기초조사 및 문제진단
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="main-news" class="contents">
+				<div class="inner">
+					<div class="select-news">
+						<div class="swiper-container">
+							<ul class="swiper-wrapper">
+								<?=$Main_SlideA?>
+								<!-- <li class="swiper-slide">
+									<a href="">
+										<div class="text">
+											<span>News</span>
+											<h2>
+												서남병원 게시판<br>
+												타이틀을 입력해주세요.
+											</h2>
+											<p>
+												설명글입력 설명글입력 설명글입력 설명글입력 설명글입력<br> 
+												설명글입력 설명글입력 설명글입력 설명글입력 설명글입력 설명글입력 <br>
+												설명글입력 설명글입력 설명글입력 설명글입력 설명
+											</p>
+										</div>
+										<div class="img"><img src="https://via.placeholder.com/811x432" alt=""></div>
+									</a>
+								</li> -->
+							</ul>
+							<div class="swiper-control">
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-pagination"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
+					</div>
+					<div class="static-news contents no-bottom-pad">
+						<h2>
+							<a href="#none">
+								<img class="mb-hide" src="/resource/images/main-news-more.png" alt="병원소식 더보기">
+								<img class="mb-show" src="/resource/images/main-news-more-m.png" alt="병원소식 더보기">
+							</a>
+						</h2>
+						<div class="news-list">
+                        <?=$Main_SlideB?>
+							<!-- <a href="">
+								<p>
+									병원소식 게시판 타이틀이 노출됩니다.
+									병원소식 게시판 타이틀이 노출됩니다.
+								</p>
+								<span>
+									병원소식 게시판 내용이 세줄 노출됩니다.
+									병원소식 게시판 내용이 세줄 노출됩니다.
+									병원소식 게시판 내용이 세줄 노출됩니다.
+								</span>
+								<b>2022.11.11</b>
+							</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include $_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"; ?>
+        <?
+            $mobile_agent = '/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/';
+
+            // preg_match() 함수를 이용해 모바일 기기로 접속하였는지 확인
+            if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])) {
+                include "./popup/popup_layer.php";
+            }else{
+                include "./popup/popup_script.php";
+            }
+        ?>
+
+	</div>
+</body>
+</html>
